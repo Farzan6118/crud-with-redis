@@ -5,9 +5,15 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.1.RELEASE</version>
+        <version>2.6.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+    <developers>
+        <developer>
+            <name>Farzan Saketi</name>
+            <email>farzan.6118@gmail.com</email>
+        </developer>
+    </developers>
     <groupId>com.example</groupId>
     <artifactId>cache-with-redis</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -45,6 +51,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

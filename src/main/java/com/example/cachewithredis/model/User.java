@@ -1,34 +1,32 @@
 package com.example.cachewithredis.model;
 
-import java.io.Serializable;
+import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.redis.core.RedisHash;
+import org.springframework.format.annotation.DateTimeFormat;
 
-public class User implements Serializable {
+import java.time.LocalDateTime;
+
+@Data
+@RedisHash("user")
+public class User {
 
     private String id;
-    private String name;
-    private String age;
+    private Gender gender;
+    private String firstName;
+    private String lastName;
+    private String NationalCode;
 
-    public String getId() {
-        return id;
-    }
+    @CreatedDate // TODO: createdAt & updatedAt are not working
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime createdAt;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    @LastModifiedDate // TODO: createdAt & updatedAt are not working
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime updatedAt;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
+    public enum Gender {
+        MALE, FEMALE
     }
 }
